@@ -90,3 +90,31 @@ body {
     background: rgba(255, 255, 255, 0.95);
     border-top: 8px solid var(--primary); 
 }
+
+/* --- Mobile Responsive Fixes --- */
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Less space around the edges on mobile */
+    }
+
+    .container {
+        padding: 20px; /* Reduce internal padding so text doesn't look squashed */
+        width: 100%;
+        border-radius: 8px; /* Slightly smaller corners for mobile */
+    }
+
+    .form-row {
+        flex-direction: column; /* This stacks the "Section" and "Team" fields vertically */
+        gap: 0; /* Removes horizontal gap since they are stacked */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Makes the title fit better on small screens */
+    }
+
+    input, select, .submit-btn {
+        font-size: 16px; /* Prevents iOS from zooming in automatically on focus */
+        padding: 12px;   /* Larger touch targets for fingers */
+    }
+}
