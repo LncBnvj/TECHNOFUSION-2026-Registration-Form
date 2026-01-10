@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="style.css">   
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>TECHNOFUSION 2026: Event Registration</h1>
-            <p>Fill out the form to join the competition.</p>
-        </header>
+    <div class="container" style="padding-top: 0; overflow: hidden;"> 
+        <div id="countdown" class="countdown-bar">
+            <span>Registration ends in:</span>
+            <div id="timer">--:--:--</div>
+        </div>
+
+        <div style="padding: 30px 40px 0 40px;">
+            <header>
+                <h1>TECHNOFUSION 2026: Event Registration</h1>
+                <p>Fill out the form to join the competition.</p>
+            </header>
+        </div>
 
         <form id="registrationForm">
             <div class="form-group">
@@ -67,10 +74,33 @@
                 </div>
             </div>
 
+            <div id="teamDetailsSection" style="display: none;">
+                <div class="form-group">
+                    <label for="teamName">Participating Team Name</label>
+                    <input type="text" name="Participating_Team" id="teamName" placeholder="Enter your Team Name">
+                </div>
+                <div class="form-group">
+                    <label id="memberLabel">Team Members</label>
+                    <div id="memberInputsContainer">
+                        </div>
+                    <input type="hidden" name="Members" id="finalMembersList">
+                </div>
+            </div>
+
             <button type="submit" id="submitBtn" class="submit-btn">Submit Registration</button>
         </form>
 
         <div id="statusMessage"></div>
+    </div>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="confetti-icon">🎉</div>
+            <h2>Registration Successful!</h2>
+            <p>Your entry for <strong>Technofusion 2026</strong> has been recorded.</p>
+            <div class="good-luck-text">GOOD LUCK, PARTICIPANT!</div>
+            <button onclick="closeModal()" class="close-btn">Close</button>
+        </div>
     </div>
 
     <script src="script.js"></script>   
