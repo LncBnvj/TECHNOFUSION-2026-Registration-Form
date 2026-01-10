@@ -152,46 +152,144 @@ input:focus, select:focus {
 
 .submit-btn:active { transform: scale(0.98); }
 
-/* --- Modal & Status --- */
+/* --- Success Modal Overlay --- */
 .modal-overlay {
-    display: none;
+    display: none; /* Controlled by JS: .style.display = 'flex' */
     position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(5px);
-    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.85); /* Dark slate with high opacity */
+    backdrop-filter: blur(8px);        /* Modern blur effect */
+    z-index: 2000;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
+/* --- Modal Content Box --- */
 .modal-content {
     background: white;
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 24px;
     text-align: center;
-    max-width: 400px;
-    width: 90%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.good-luck-text {
-    font-size: 1.5rem;
+/* --- Elements inside Modal --- */
+.confetti-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.modal-content h2 {
+    color: #0f172a;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
     font-weight: 800;
-    color: var(--primary); /* Success text matches Team color */
-    margin: 20px 0;
-    animation: pulse 1.5s infinite;
 }
 
-/* --- Animations & Responsive --- */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.modal-content p {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-@media (max-width: 600px) {
-    #registrationForm { padding: 0 20px 30px 20px; }
-    .countdown-bar { flex-direction: column; gap: 10px; padding: 12px; font-size: 0.8rem; }
-    .form-row { flex-direction: column; gap: 0; }
-    h1 { font-size: 1.3rem; }
+.modal-content strong {
+    color: #1e293b;
+}
+
+/* --- Animated Good Luck Text --- */
+.good-luck-text {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--primary); /* Uses selected team color */
+    margin: 30px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* --- Close Button --- */
+.close-btn {
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.close-btn:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Animations --- */
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.8) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); filter: drop-shadow(0 0 0px var(--primary)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 8px var(--primary)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 0px var(--primary)); }
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 30px 20px;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    .good-luck-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Email Validation Error Message --- */
+#statusMessage.error {
+    display: block; /* Shown when validation fails */
+    background-color: #fef2f2; /* Light red background */
+    color: #991b1b;            /* Deep red text */
+    border: 1px solid #fecaca; /* Soft red border */
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+    
+    /* Animation to grab attention */
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Red Spartan Highlight inside the error */
+#statusMessage.error b {
+    text-decoration: underline;
+    color: #7f1d1d;
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
 }

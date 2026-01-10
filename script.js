@@ -113,9 +113,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         return; // Stops the function here
     }
 
-    btn.disabled = true;
-    btn.textContent = "Processing Registration...";
-
     const formData = new FormData(this);
     
     // Debugging logs to verify your team data
