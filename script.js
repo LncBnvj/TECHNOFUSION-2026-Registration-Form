@@ -153,7 +153,7 @@ function closeModal() {
 }
 
 // Set the deadline
-const registrationDeadline = new Date(2026, 0, 30, 23, 59, 59).getTime(); 
+const registrationDeadline = new Date(2026, 1, 14, 23, 59, 59).getTime(); 
 
 const timerInterval = setInterval(function() {
     const now = new Date().getTime();
