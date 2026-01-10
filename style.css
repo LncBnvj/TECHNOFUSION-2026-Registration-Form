@@ -1,11 +1,42 @@
+/* --- Global Variables --- */
 :root {
-    --primary: #2563eb;
+    --primary: #2563eb;          /* Dynamic: changes with changeTeamColor() */
     --primary-hover: #1d4ed8;
     --bg: #f8fafc;
+    --team-bg: #f8fafc;         /* Dynamic: changes with changeTeamColor() */
     --text: #1e293b;
+    --border: #cbd5e1;
 }
 
-/* --- Seamless Horizontal Countdown Bar --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--team-bg); /* Controlled by JS */
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    transition: background-color 0.5s ease; /* Smooth team color transition */
+}
+
+/* --- Container Integration --- */
+.container {
+    background: white;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-top: 8px solid var(--primary); /* Updates with Team color */
+    overflow: hidden; /* Clips the countdown bar to the border radius */
+    transition: border-color 0.5s ease;
+}
+
+/* --- Seamless One-Line Countdown --- */
 .countdown-bar {
     background: #0f172a;
     color: white;
@@ -15,14 +46,13 @@
     align-items: center;
     gap: 20px;
     padding: 15px 0;
-    width: 100%; /* Ensures it fills the container width */
-    margin: 0;   /* Removes any accidental spacing */
-    border-radius: 12px 12px 0 0; /* Matches .container radius exactly */
-    border-bottom: 3px solid var(--primary);
+    width: 100%;
+    border-bottom: 3px solid var(--primary); /* Updates with Team color */
     font-weight: 700;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: border-color 0.5s ease;
 }
 
 #timer {
@@ -32,154 +62,102 @@
 
 #timer span {
     background: #1e293b;
-    color: #fbff00;
+    color: #fbff00; /* Neon yellow for high contrast */
     min-width: 50px;
     padding: 6px 10px;
     border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1.1rem;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Fix for the container to ensure the timer fits perfectly */
-.container {
-    padding: 0 0 40px 0 !important; /* Remove top padding, keep bottom/sides */
-    overflow: hidden; /* Prevents timer corners from poking out */
+/* --- Form Content Spacing --- */
+header {
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-/* Add padding back to the form content only */
-#registrationForm, header {
-    padding-left: 40px;
-    padding-right: 40px;
+h1 {
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 8px;
 }
 
-@media (max-width: 600px) {
-    #registrationForm, header {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .countdown-bar {
-        font-size: 0.75rem;
-        gap: 10px;
-    }
+header p {
+    color: #64748b;
 }
 
-body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    margin: 0;
+#registrationForm {
+    padding: 0 40px 40px 40px;
 }
 
-.container {
-    background: white;
-    width: 100%;
-    max-width: 650px;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-header { text-align: center; margin-bottom: 30px; }
-h1 { margin: 0; color: #0f172a; }
-p { color: #64748b; margin-top: 8px; }
-
+/* --- Input Fields --- */
 .form-group { margin-bottom: 1.5rem; flex: 1; }
 .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
 
-label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; }
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
 
 input, select {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #cbd5e1;
+    padding: 12px;
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-size: 1rem;
-    box-sizing: border-box;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input:focus, select:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: var(--primary); /* Highlight color matches Team */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
-.submit-btn {
-    width: 100%;
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.submit-btn:hover { background: var(--primary-hover); }
-.submit-btn:disabled { background: #94a3b8; cursor: not-allowed; }
-
-#statusMessage {
-    margin-top: 20px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 6px;
-    display: none;
-}
-
-.success { background: #dcfce7; color: #166534; }
-.error { background: #fee2e2; color: #991b1b; }
-
-:root {
-    --primary: #2563eb;
-    --team-bg: #f8fafc; 
-}
-
-body {
-    background-color: var(--team-bg);
-    transition: background-color 0.5s ease; 
-}
-
-.container {
-    background: rgba(255, 255, 255, 0.95);
-    border-top: 8px solid var(--primary); 
-}
-
-#memberInputsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.member-input {
-    border-left: 3px solid var(--primary) !important;
-}
-
+/* --- Team Details Section (Dynamic) --- */
 #teamDetailsSection {
     background: rgba(0, 0, 0, 0.03);
     padding: 20px;
     border-radius: 8px;
-    border: 1px dashed #cbd5e1;
+    border: 1px dashed var(--border);
     margin-bottom: 20px;
 }
 
+.member-input {
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary) !important; /* Left accent matches Team */
+}
 
-/* Success Modal Styling */
-.modal-overlay {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
+/* --- Submit Button --- */
+.submit-btn {
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--primary); /* Matches Team color */
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    filter: brightness(0.9); /* Darkens slightly regardless of color */
+}
+
+.submit-btn:active { transform: scale(0.98); }
+
+/* --- Modal & Status --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(5px);
     z-index: 1000;
     justify-content: center;
@@ -194,118 +172,26 @@ body {
     max-width: 400px;
     width: 90%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: slideUp 0.4s ease-out;
 }
-
-.confetti-icon { font-size: 50px; margin-bottom: 10px; }
 
 .good-luck-text {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary);
+    color: var(--primary); /* Success text matches Team color */
     margin: 20px 0;
-    letter-spacing: 2px;
     animation: pulse 1.5s infinite;
 }
 
-.close-btn {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
+/* --- Animations & Responsive --- */
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
 
-/* --- Mobile Responsive Fixes --- */
-
 @media (max-width: 600px) {
-    body {
-        padding: 10px; /* Less space around the edges on mobile */
-    }
-
-    .container {
-        padding: 20px; /* Reduce internal padding so text doesn't look squashed */
-        width: 100%;
-        border-radius: 8px; /* Slightly smaller corners for mobile */
-    }
-
-    .form-row {
-        flex-direction: column; /* This stacks the "Section" and "Team" fields vertically */
-        gap: 0; /* Removes horizontal gap since they are stacked */
-    }
-
-    header h1 {
-        font-size: 1.5rem; /* Makes the title fit better on small screens */
-    }
-
-    input, select, .submit-btn {
-        font-size: 16px; /* Prevents iOS from zooming in automatically on focus */
-        padding: 12px;   /* Larger touch targets for fingers */
-    }
-}
-
-/* --- High-Contrast Horizontal Countdown Bar --- */
-.countdown-bar {
-    background: #0f172a; /* Deep midnight navy */
-    color: white;
-    display: flex;
-    flex-direction: row; /* Forces horizontal alignment */
-    justify-content: center; /* Centers the whole group */
-    align-items: center;
-    gap: 25px; /* Space between the label and the blocks */
-    padding: 15px 20px;
-    border-radius: 12px 12px 0 0; /* Matches container corners */
-    border-bottom: 3px solid var(--primary);
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-#timer {
-    display: flex;
-    flex-direction: row; /* Keeps time units side-by-side */
-    gap: 10px;
-}
-
-/* Rectangular Time Blocks */
-#timer span {
-    background: #1e293b; /* Slightly lighter navy for depth */
-    color: #fbff00; /* Neon yellow for high visibility */
-    min-width: 55px; /* Ensures blocks are wide enough to fill space */
-    padding: 8px 12px;
-    border-radius: 4px; /* Crisp rectangular shape */
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 1.1rem;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    display: inline-block;
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 650px) {
-    .countdown-bar {
-        flex-direction: column; /* Stack only on very small screens to avoid overflow */
-        gap: 10px;
-        padding: 12px;
-    }
-    
-    #timer span {
-        min-width: 45px;
-        font-size: 0.9rem;
-        padding: 6px 8px;
-    }
+    #registrationForm { padding: 0 20px 30px 20px; }
+    .countdown-bar { flex-direction: column; gap: 10px; padding: 12px; font-size: 0.8rem; }
+    .form-row { flex-direction: column; gap: 0; }
+    h1 { font-size: 1.3rem; }
 }
