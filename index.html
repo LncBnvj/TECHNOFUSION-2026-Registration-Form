@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TECHNOFUSION 2026: Event Registration</h1>
+            <p>Fill out the form to join the competition.</p>
+        </header>
+
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" name="Name" id="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="Email" id="email" placeholder="21-00000@g.batstate-u.edu.ph" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="section">Section</label>
+                    <input type="text" name="Section" id="section" placeholder="e.g. CS/IT 1111" required>
+                </div>
+                <div class="form-group">
+                    <label for="team">Team</label>
+                    <select name="Team" id="team" required onchange="changeTeamColor()">
+                        <option value="">Select your Team</option>
+                        <option value="ADLAW">Adlaw</option>
+                        <option value="BAGANI">Bagani</option>
+                        <option value="TALA">Tala</option>
+                        <option value="BAYBAY">Baybay</option>
+                        <option value="BULAN">Bulan</option>
+                        <option value="SIGWA">Sigwa</option>
+                        <option value="DALISAY">Dalisay</option>
+                        <option value="ANINO">Anino</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="category">Competition Category</label>
+                    <select id="category" name="Category" required onchange="updateEvents()">
+                        <option value="">Select Category</option>
+                        <option value="Academics">Academics</option>
+                        <option value="Literary">Literary Arts</option>
+                        <option value="Performing">Performing Arts</option>
+                        <option value="Visual">Visual and Media Arts</option>
+                        <option value="Socio">Socio-Cultural</option>
+                        <option value="Esports">E-Sports</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="event">Specific Competition</label>
+                    <select id="event" name="Event" required disabled>
+                        <option value="">Select a Category first</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">Submit Registration</button>
+        </form>
+
+        <div id="statusMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
