@@ -1,22 +1,22 @@
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb6obRhpYV1dcniRPXDvOnaaty8FUAarxa682wW2MSaegkkIWr_2zJ5sVvhp2pZeBL/exec';
 
 const competitions = {
-    "Academics": ["Technology Quiz Challenge", "SQL Speed Challenge", "Networking Challenge", "Business Intelligence Dashboard Challenge", "Programming Challenge", "UI/UX Redesign Challenge - Tournament", "Technofusion Hackathon Challenge", "Robotics Techathlon Challenge", "Capture the Flag Challenge", "InterCICSkwela Programming", "InterCICSkwela Hackathon"],
-    "Literary": ["Science-Technology Writing", "Poem Writing Challenge", "Reverse Poetry Challenge", "Extemporaneous Speaking Challenge", "Oratorical Speech Challenge", "Malikhaing Pagpapakilala", "Essay Writing Challenge"],
+    "Academics": ["Technology Quiz Challenge", "SQL Speed Challenge", "Networking Challenge", "Business Intelligence Dashboard Challenge", "Programming Challenge", "UI/UX Redesign Challenge - Tournament", "Technofusion Hackathon Challenge", "Robotics Techathlon Challenge", "Capture the Flag Challenge", "Prompt Engineering Challenge"],
+    "Literary": ["Science-Technology Writing", "Poem Writing Challenge", "Oratorical Speech Challenge", "Malikhaing Pagpapakilala", "Essay Writing Challenge"],
     "Performing": ["Battle of the Bands", "Modern Dance", "Runway Challenge"],
-    "Visual": ["Photography Challenge", "Motion Graphics and Animation Challenge", "Digital Art Challenge", "Content Creation Challenge", "Logo Creation Challenge"],
-    "Socio": ["Karsada't Kapatiran", "Pamilihang Batan"],
-    "Esports": ["Valorant", "Mobile Legends: Bang Bang", "Call of Duty", "League of Legends", "Tetris", "Typing Sprint Challenge"]
+    "Visual": ["Photography Challenge", "Motion Graphics and Animation Challenge", "Digital Art Challenge", "Content Creation Challenge"],
+    "Esports": ["Valorant", "Mobile Legends: Bang Bang", "Call of Duty", "League of Legends", "Bayanihan Bros", "Typing Sprint Challenge"]
 };
 
 const teamRules = {
     "Technofusion Hackathon Challenge": { min: 2, max: 3 },
-    "InterCICSkwela Hackathon": { min: 2, max: 3 },
     "Battle of the Bands": { min: 3, max: 7 },
     "Modern Dance": { min: 6, max: 12 },
     "Valorant": { min: 5, max: 6 }, 
     "Mobile Legends: Bang Bang": { min: 5, max: 6 }, 
-    "Call of Duty": { min: 5, max: 5 },
+    "Call of Duty": { min: 5, max: 6 },
+    "League of Legends": { min: 5, max: 6 },
+    "Bayanihan Bros": { min: 2, max: 2 },
     "League of Legends": { min: 5, max: 5 }
 };
 
