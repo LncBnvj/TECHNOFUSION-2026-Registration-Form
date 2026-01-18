@@ -18,7 +18,7 @@ const teamRules = {
     "League of Legends": { min: 5, max: 6 },
     "Content Creation Challenge": { min: 3, max: 5 },
     "Bayanihan Bros": { min: 2, max: 2 },
-    "League of Legends": { min: 5, max: 5 }
+    "League of Legends": { min: 5, max: 6 }
 };
 
 function updateEvents() {
