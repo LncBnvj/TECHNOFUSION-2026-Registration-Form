@@ -16,6 +16,7 @@ const teamRules = {
     "Mobile Legends: Bang Bang": { min: 5, max: 6 }, 
     "Call of Duty": { min: 5, max: 6 },
     "League of Legends": { min: 5, max: 6 },
+    "Content Creation Challenge": { min: 3, max: 5 },
     "Bayanihan Bros": { min: 2, max: 2 },
     "League of Legends": { min: 5, max: 5 }
 };
