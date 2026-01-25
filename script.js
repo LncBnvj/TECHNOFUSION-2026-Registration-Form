@@ -9,6 +9,7 @@ const competitions = {
 };
 
 const teamRules = {
+    "Technology Quiz Challenge": { min: 3, max: 3 },    
     "Technofusion Hackathon Challenge": { min: 2, max: 3 },
     "Battle of the Bands": { min: 3, max: 7 },
     "Modern Dance": { min: 6, max: 12 },
