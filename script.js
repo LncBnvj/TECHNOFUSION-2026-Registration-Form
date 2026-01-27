@@ -82,14 +82,14 @@ function changeTeamColor() {
     const root = document.documentElement;
     
     const teamColors = {
-        "ADLAW": "#fa0000",      
-        "BAGANI": "#ff9900",     
-        "TALA": "#fbff00",
-        "BAYBAY": "#2ECC71", 
-        "BULAN": "#0400ff",      
-        "SIGWA": "#8d00b8",      
-        "DALISAY": "#ff00b3",   
-        "ANINO": "#643000"       
+        "ASTRA": "#fa0000",      
+        "NOVA": "#ff9900",     
+        "LYRA": "#fbff00",
+        "SCRIPTUM": "#2ECC71", 
+        "VORTEX": "#0400ff",      
+        "TITAN": "#8d00b8",      
+        "FLUX": "#ff00b3",   
+        "UMBRA": "#643000"       
     };
 
     if (teamColors[team]) {
