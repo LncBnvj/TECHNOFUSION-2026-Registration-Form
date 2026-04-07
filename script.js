@@ -2,7 +2,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb6obRhpYV1dcniRPXD
 
 const competitions = {
     "Academics": ["Technology Quiz Challenge", "SQL Speed Challenge", "Networking Challenge", "Business Intelligence Dashboard Challenge", "Programming Challenge", "UI/UX Redesign Challenge - Tournament", "Technofusion Hackathon Challenge", "Robotics Techathlon Challenge", "Capture the Flag Challenge", "Prompt Engineering Challenge"],
-    "Literary": ["Science-Technology Writing", "Poem Writing Challenge", "Oratorical Speech Challenge", "Malikhaing Pagpapakilala", "Essay Writing Challenge"],
+    "Literary": ["Science-Technology Writing", "Poem Writing Challenge", "Oratorical Speech Challenge", "Malikhaing Pagpapakilala", "Essay Writing Challenge", "Debate"],
     "Performing": ["Battle of the Bands", "Modern Dance", "Runway Challenge"],
     "Visual": ["Photography Challenge", "Motion Graphics and Animation Challenge", "Digital Art Challenge", "Content Creation Challenge"],
     "Esports": ["Valorant", "Mobile Legends: Bang Bang", "Call of Duty", "League of Legends", "Bayanihan Bros", "Typing Sprint Challenge"]
@@ -19,7 +19,8 @@ const teamRules = {
     "League of Legends": { min: 5, max: 6 },
     "Content Creation Challenge": { min: 3, max: 5 },
     "Bayanihan Bros": { min: 2, max: 2 },
-    "League of Legends": { min: 5, max: 6 }
+    "League of Legends": { min: 5, max: 6 },
+    "Debate": {min: 3, max: 3}
 };
 
 function updateEvents() {
