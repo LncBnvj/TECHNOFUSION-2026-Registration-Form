@@ -3,7 +3,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb6obRhpYV1dcniRPXD
 const competitions = {
     "Academics": ["Technology Quiz Challenge", "SQL Speed Challenge", "Networking Challenge", "Business Intelligence Dashboard Challenge", "Programming Challenge", "UI/UX Redesign Challenge - Tournament", "Robotics Techathlon Challenge", "Capture the Flag Challenge", "Prompt Engineering Challenge"],
     "Literary": ["Science-Technology Writing", "Poem Writing Challenge", "Oratorical Speech Challenge", "Malikhaing Pagpapakilala", "Essay Writing Challenge", "Debate"],
-    "Performing": ["Battle of the Bands", "Modern Dance", "Runway Challenge"],
+    "Performing": ["Battle of the Bands", "Stellar Sync", "Runway Challenge"],
     "Visual": ["Photography Challenge", "Motion Graphics and Animation Challenge", "Digital Art Challenge", "Content Creation Challenge"],
     "Esports": ["Valorant", "Mobile Legends: Bang Bang", "Call of Duty", "League of Legends", "Bayanihan Bros", "Typing Sprint Challenge"]
 };
@@ -11,7 +11,7 @@ const competitions = {
 const teamRules = {
     "Technology Quiz Challenge": { min: 3, max: 3 },    
     "Battle of the Bands": { min: 3, max: 7 },
-    "Modern Dance": { min: 6, max: 12 },
+    "Stellar Sync": { min: 10, max: 20 },
     "Valorant": { min: 5, max: 6 }, 
     "Mobile Legends: Bang Bang": { min: 5, max: 6 }, 
     "Call of Duty": { min: 5, max: 6 },
