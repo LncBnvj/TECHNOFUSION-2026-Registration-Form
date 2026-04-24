@@ -1,18 +1,15 @@
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb6obRhpYV1dcniRPXDvOnaaty8FUAarxa682wW2MSaegkkIWr_2zJ5sVvhp2pZeBL/exec';
 
 const competitions = {
-    "Academics": ["SQL Speed Challenge", "Networking Challenge", "Business Intelligence Dashboard Challenge", "UI/UX Redesign Challenge", "Robotics Techathlon Challenge", "Capture the Flag Challenge"],
-    "Literary": ["Science-Technology Writing", "Poem Writing Challenge", "Oratorical Speech Challenge", "Malikhaing Pagpapakilala", "Essay Writing Challenge", "Debate"],
+    "Academics": ["Business Intelligence Dashboard Challenge", "UI/UX Redesign Challenge", "Capture the Flag Challenge"],
+    "Literary": [],
     "Performing": [],
-    "Visual": ["Photography Challenge", "Motion Graphics and Animation Challenge", "Digital Art Challenge", "Content Creation Challenge"],
-    "Esports": ["Bayanihan Bros"]
+    "Visual": [],
+    "Esports": []
 };
 
 const teamRules = { 
     "UI/UX Redesign Challenge": { min: 3, max: 3 },
-    "Content Creation Challenge": { min: 3, max: 5 },
-    "Bayanihan Bros": { min: 2, max: 2 },
-    "Debate": {min: 3, max: 3}
 };
 
 function updateEvents() {
@@ -148,7 +145,7 @@ function closeModal() {
 }
 
 // Set the deadline
-const registrationDeadline = new Date(2026, 3, 20, 23, 59, 59).getTime(); 
+const registrationDeadline = new Date(2026, 3, 25, 23, 59, 59).getTime(); 
 
 const timerInterval = setInterval(function() {
     const now = new Date().getTime();
