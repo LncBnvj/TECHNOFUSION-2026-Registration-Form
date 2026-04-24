@@ -2,10 +2,6 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb6obRhpYV1dcniRPXD
 
 const competitions = {
     "Academics": ["Business Intelligence Dashboard Challenge", "UI/UX Redesign Challenge", "Capture the Flag Challenge"],
-    "Literary": [],
-    "Performing": [],
-    "Visual": [],
-    "Esports": []
 };
 
 const teamRules = { 
